@@ -24,7 +24,7 @@ public class PaymentTest {
 
         ShippingSlip expectedResult = new ShippingSlip("data");
 
-        Assert.assertEquals(result, expectedResult);
+        Assert.assertEquals(result.data(), expectedResult.data());
 
 
     }
