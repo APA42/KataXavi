@@ -13,8 +13,8 @@ public class Payment {
 
     public List<ShippingSlip> payForBookProduct(BookProduct book) {
         ArrayList<ShippingSlip> aux = new ArrayList<ShippingSlip>();
-        aux.add(new ShippingSlip("1"));
-        aux.add(new ShippingSlip("2"));
+        aux.add(new ShippingSlip("book"));
+        aux.add(new ShippingSlip("book"));
         return aux;
     }
 }
