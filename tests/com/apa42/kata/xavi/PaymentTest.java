@@ -14,7 +14,7 @@ public class PaymentTest {
     private PhysicalProduct aPhysicalProduct;
 
     @Test
-    public void whenPhysicaProductThenGeneratePackingSlip() {
+    public void whenPhysicalProductThenGeneratePackingSlip() {
         aPhysicalProduct = new PhysicalProduct();
         myPayment = new Payment();
 
@@ -26,11 +26,11 @@ public class PaymentTest {
 
     //2 - If the payment is for a book, create a duplicate packing slip for the royalty department.
     @Test
-    public void whenBookThenCreateaDuplicatePackingSlip() {
-        Book book = new Book();
+    public void whenBookProductThenCreateDuplicatePackingSlip() {
+        BookProduct book = new BookProduct();
         myPayment = new Payment();
 
-        List<ShippingSlip> result = myPayment.payForBook(book);
+        List<ShippingSlip> result = myPayment.payForBookProduct(book);
 
         int TWO_ITEMS = 2;
         Assert.assertEquals(result.size(), TWO_ITEMS);
