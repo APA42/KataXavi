@@ -1,7 +1,5 @@
 package com.apa42.kata.xavi;
 
-import com.sun.source.tree.AssertTree;
-import junit.framework.Assert;
 import org.junit.Test;
 
 /**
@@ -15,17 +13,11 @@ public class PaymentTest {
     @Test
     public void whenPhysicaProductThenGeneratePackingSlip() {
         aPhysicalProduct = new PhysicalProduct();
-
         myPayment = new Payment();
 
         ShippingSlip result = myPayment.payForPhysicalProduct(aPhysicalProduct);
 
-        //org.junit.Assert.
-
         ShippingSlip expectedResult = new ShippingSlip("data");
-
-        Assert.assertEquals(result.data(), expectedResult.data());
-
-
+        org.junit.Assert.assertEquals(result.data(), expectedResult.data());
     }
 }
