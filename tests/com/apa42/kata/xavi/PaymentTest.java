@@ -1,6 +1,9 @@
 package com.apa42.kata.xavi;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created by APA42 on 07/05/15.
@@ -19,5 +22,17 @@ public class PaymentTest {
 
         ShippingSlip expectedResult = new ShippingSlip("data");
         org.junit.Assert.assertEquals(result.data(), expectedResult.data());
+    }
+
+    //2 - If the payment is for a book, create a duplicate packing slip for the royalty department.
+    @Test
+    public void whenBookThenCreateaDuplicatePackingSlip() {
+        Book book = new Book();
+        myPayment = new Payment();
+
+        List<ShippingSlip> result = myPayment.payForBook(book);
+
+        int TWO_ITEMS = 2;
+        Assert.assertEquals(result.size(), TWO_ITEMS);
     }
 }
