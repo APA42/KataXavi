@@ -32,7 +32,10 @@ public class PaymentTest {
 
         List<ShippingSlip> result = myPayment.payForBookProduct(book);
 
-        int TWO_ITEMS = 2;
-        Assert.assertEquals(result.size(), TWO_ITEMS);
+
+        ShippingSlip expectedPackingShip = new ShippingSlip("book");
+        Assert.assertEquals(result.get(0).data(), expectedPackingShip.data());
+        Assert.assertEquals(result.get(1).data(), expectedPackingShip.data());
     }
+
 }
