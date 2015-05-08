@@ -21,6 +21,7 @@ public class Payment {
         ArrayList<ShippingSlip> aux = new ArrayList<ShippingSlip>();
         aux.add(new ShippingSlip("book"));
         aux.add(new ShippingSlip("book"));
+        mySender.sendPackingSlipToRoyaltyDepartmente();
         return aux;
     }
 }
