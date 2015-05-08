@@ -7,6 +7,12 @@ import java.util.List;
  * Created by APA42 on 07/05/15.
  */
 public class Payment {
+    private Sender mySender;
+
+    public Payment(Sender aSender) {
+        mySender = aSender;
+    }
+
     public ShippingSlip payForPhysicalProduct(PhysicalProduct aPhysicalProduct) {
         return new ShippingSlip("data");
     }

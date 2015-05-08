@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+//import org.mockito.Spy;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class PaymentTest {
     private Payment myPayment;
     private PhysicalProduct aPhysicalProduct;
 
-    @Spy
+    @Mock
     private Sender aSender;
 
     @Before
@@ -28,7 +30,7 @@ public class PaymentTest {
     @Test
     public void whenPhysicalProductThenGeneratePackingSlip() {
         aPhysicalProduct = new PhysicalProduct();
-        myPayment = new Payment();
+        myPayment = new Payment(aSender);
 
         ShippingSlip result = myPayment.payForPhysicalProduct(aPhysicalProduct);
 
@@ -40,7 +42,7 @@ public class PaymentTest {
     @Test
     public void whenBookProductThenCreateDuplicatePackingSlip() {
         BookProduct book = new BookProduct();
-        myPayment = new Payment();
+        myPayment = new Payment(aSender);
 
         List<ShippingSlip> result = myPayment.payForBookProduct(book);
 
@@ -55,5 +57,6 @@ public class PaymentTest {
 
         List<ShippingSlip> result = myPayment.payForBookProduct(book);
 
-        Assert.assertEquals(result.get(0).data(), result.get(1).data());
+        verify(aSender, times(1)).sendPackingSlipToRoyaltyDepartmente();
+    }
 }
